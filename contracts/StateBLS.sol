@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import "./interfaces/IStateBLS.sol";
 import "./State.sol";
 
-contract StateBLS is IStateBLS {
+contract StateBLS is State, IStateBLS {
 
     mapping (uint64 => address) public addresses;
     mapping (uint64 => uint256[4]) public blsPublicKeys;
@@ -22,10 +22,6 @@ contract StateBLS is IStateBLS {
     // duration is a week in seconds
     uint32 constant duration = 604800;
 
-    constructor(address token_) State(token_) {
-    }
-
-    function currentCycleExpiry() public view returns (uint32) {
-        returns uint
+    constructor(address token_, uint32 duration_) State(token_, duration_) {
     }
 }

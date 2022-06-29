@@ -2,11 +2,6 @@
 pragma solidity ^0.8.13;
 
 interface IStateBLS {
-    struct Account {
-        uint128 balance;
-        uint32 nonce;
-    }
-
     struct Record {
         uint16 seqNo;
     }
@@ -15,4 +10,10 @@ interface IStateBLS {
         uint128 amount;
         uint32 validAfter;
     }
+
+    function register(
+        address userAddress,
+        uint256[4] calldata blsPk,
+        uint256[2] calldata sk
+    ) external;
 }
